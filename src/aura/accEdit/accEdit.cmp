@@ -1,0 +1,34 @@
+<aura:component description="accEdit" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="accountRecord" type="Object" />
+    <aura:attribute name="recordSaveError" type="String" description="An error message bound to force:recordData"/>
+
+
+    <force:recordData aura:id="recordEditor"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordSaveError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.accountRecord}"
+                      fields="Name"
+                      mode="EDIT" />
+
+    // Display error message
+    <aura:if isTrue="{!v.recordSaveError}">
+       <br />
+       <div class="recordError">
+           {!v.recordSaveError}
+       </div>
+    </aura:if>
+
+
+
+    <!-- Display an editing form -->
+    <ui:outputText value="Edit Account" title="Edit Account"/>
+
+    <lightning:input label="Account Name" value="{!v.accountRecord.Name}" aura:id="recordName" name="recordName" 
+                      required="true"/>
+
+    <lightning:button label="Save Account"/>
+</aura:component>
