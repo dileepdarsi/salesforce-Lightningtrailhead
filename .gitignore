@@ -1,0 +1,17 @@
+# OS X Files
+.DS_Store
+
+# Eclipse Files
+.settings/
+.project
+Referenced Packages/
+salesforce.schema
+
+# Sublime Text / MavensMate Files
+*.sublime-*
+mm.log
+config/
+
+# Ant Files
+*build.properties
+.ant-targets-build.xml
